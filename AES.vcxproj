@@ -59,7 +59,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor/cryptopp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)libs/cryptopp</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -81,7 +81,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>$(ProjectDir)vendor/cryptopp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)libs/cryptopp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -91,14 +91,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\AES\AES.cpp" />
-    <ClCompile Include="src\Example.cpp" />
+    <ClCompile Include="include\AES\AES.cpp" />
+    <ClCompile Include="include\Example.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\AES\AES.h" />
+    <ClInclude Include="include\AES\AES.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="vendor\cryptopp\cryptlib.vcxproj">
+    <ProjectReference Include="libs\cryptopp\cryptlib.vcxproj">
       <Project>{c39f4b46-6e89-4074-902e-ca57073044d2}</Project>
     </ProjectReference>
   </ItemGroup>
