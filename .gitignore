@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# CryptoPP specific
+adhoc.cpp
+adhoc.cpp.copied
+
 # User-specific files
 *.rsuser
 *.suo
