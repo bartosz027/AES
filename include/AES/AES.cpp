@@ -9,6 +9,7 @@
 #include <osrng.h>
 #include <pwdbased.h>
 
+// the size below is in bytes
 #define SALT_SIZE 16
 #define KEY_SIZE 32
 #define IV_SIZE 16
@@ -19,9 +20,8 @@
 #define HEX_HASHED_PASSWORD_SIZE 64
 #define HEX_CHECKSUM_SIZE 128
 
-using namespace CryptoPP;
-
 namespace Encryption {
+	using namespace CryptoPP;
 
 	enum class FORMAT_TYPE {
 		NONE = 0,
@@ -200,12 +200,13 @@ namespace Encryption {
 
 	std::string AES::CalculateChecksum(const std::string& encoded_string) {
 		SecByteBlock data(64);
-		HexEncoder encoder;
 
 		SHA512 sha;
 		sha.CalculateDigest(data, (byte*)encoded_string.data(), encoded_string.size());
 
+		HexEncoder encoder;
 		std::string checksum;
+
 		encoder.Attach(new StringSink(checksum));
 		encoder.Put(data, data.size());
 		encoder.MessageEnd();
@@ -216,8 +217,8 @@ namespace Encryption {
 
 	std::string AES::BytesToHex(uint8_t* bytes, size_t size) {
 		HexEncoder encoder;
-
 		std::string hex;
+
 		encoder.Attach(new StringSink(hex));
 		encoder.Put(bytes, size);
 		encoder.MessageEnd();
@@ -227,8 +228,8 @@ namespace Encryption {
 
 	std::string AES::HexToBytes(const std::string& hex) {
 		HexDecoder decoder;
-
 		std::string bytes;
+
 		decoder.Attach(new StringSink(bytes));
 		decoder.Put((byte*)hex.data(), hex.size());
 		decoder.MessageEnd();

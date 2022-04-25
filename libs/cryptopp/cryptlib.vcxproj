@@ -53,8 +53,8 @@
   <!-- Intermediate and Output directories -->
   <!-- Cryptlib and Cryptest need extra care due to Non-DLL/DLL configs -->
   <PropertyGroup Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='Release'" Label="Non-DLL Directories">
-    <OutDir>$(SolutionDir)Build\$(Configuration)\bin\.Dependencies\$(ProjectName)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(Configuration)\obj\.Dependencies\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Configuration)\bin\libs\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Configuration)\obj\libs\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <!-- All Configurations -->
   <ItemDefinitionGroup Label="All Configurations">

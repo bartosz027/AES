@@ -1,25 +1,25 @@
+#include "AES/AES.h"
+
 #include <iostream>
 #include <string>
 
-#include "AES/AES.h"
-
 int main(int argc, char* argv[]) {
-    std::string secret, secret_revealed;
+    std::string encrypted_message, decrypted_message;
 
     try {
-        secret = Encryption::AES::Encrypt("TEST MESSAGE!", "PASSWORD");
-        secret_revealed = Encryption::AES::Decrypt(secret, "PASSWORD");
+        encrypted_message = Encryption::AES::Encrypt("TEST MESSAGE!", "PASSWORD");
+        decrypted_message = Encryption::AES::Decrypt(encrypted_message, "PASSWORD");
 
         std::cout << "======================================================== TEST 1 ========================================================\n";
-        std::cout << "ENCRYPTED:\n" << secret << "\n\n";
-        std::cout << "DECRYPTED:\n" << secret_revealed << "\n\n";
+        std::cout << "ENCRYPTED:\n" << encrypted_message << "\n\n";
+        std::cout << "DECRYPTED:\n" << decrypted_message << "\n\n";
 
-        secret = Encryption::AES::Encrypt("LONGER TEST MESSAGE!", "PASSWORD");
-        secret_revealed = Encryption::AES::Decrypt(secret, "PASSWORD");
+        encrypted_message = Encryption::AES::Encrypt("LONGER TEST MESSAGE!", "PASSWORD");
+        decrypted_message = Encryption::AES::Decrypt(encrypted_message, "PASSWORD");
 
         std::cout << "======================================================== TEST 2 ========================================================\n";
-        std::cout << "ENCRYPTED:\n" << secret << "\n\n";
-        std::cout << "DECRYPTED:\n" << secret_revealed << "\n\n";
+        std::cout << "ENCRYPTED:\n" << encrypted_message << "\n\n";
+        std::cout << "DECRYPTED:\n" << decrypted_message << "\n\n";
     }
     catch (const char* error) {
         std::cout << error << std::endl;
